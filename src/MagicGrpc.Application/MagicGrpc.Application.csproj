@@ -12,9 +12,11 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\MagicGrpc.Core\MagicGrpc.Core.csproj" />
+    <ProjectReference Include="..\MagicGrpc.Shared\MagicGrpc.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Abp.EntityFrameworkCore" Version="6.5.0" />
     <PackageReference Include="Abp.AutoMapper" Version="6.5.0" />
+    <PackageReference Include="MagicOnion.Server" Version="4.3.1" />
   </ItemGroup>
 </Project>

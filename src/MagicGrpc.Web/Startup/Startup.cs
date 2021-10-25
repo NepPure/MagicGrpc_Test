@@ -25,6 +25,9 @@ namespace MagicGrpc.Web.Startup
         
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddGrpc();
+            services.AddMagicOnion();
+
             //Configure DbContext
             services.AddAbpDbContext<MagicGrpcDbContext>(options =>
             {
@@ -69,6 +72,7 @@ namespace MagicGrpc.Web.Startup
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapMagicOnionService();
             });
         }
     }

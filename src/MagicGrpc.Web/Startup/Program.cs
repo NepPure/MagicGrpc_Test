@@ -8,10 +8,13 @@ namespace MagicGrpc.Web.Startup
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseKestrel()
+                .UseKestrel(options =>
+                options.ConfigureEndpointDefaults(e =>
+                e.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2))
+
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseUrls(new string[] { "http://127.0.0.1:5500" })
                 .Build();
 
             host.Run();
